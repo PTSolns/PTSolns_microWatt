@@ -16,16 +16,6 @@ int SCL_pin_global = SCL_pin_default;
 int mSL_code = 0;
 
 
-
-// The blink function uses a delay... maybe better to do with a timer?
-// Make a deep sleep function?
-// Make a function to specify which core to use? https://randomnerdtutorials.com/esp32-dual-core-arduino-ide/
-// Does the .being() need a delay inside?
-
-
-
-
-
 uint8_t microWatt::begin(int LED, int number_of_blink, int time_between_blink) {
 
   delay(1000);
