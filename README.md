@@ -1,4 +1,4 @@
-# PTSolns microWatt Support Library
+# PTSolns microWatt Support Library (mSL)
 Library for PTSolns microWatt
 
 Although it is recommended that novice users install the microWatt Support Library (mSL), this library is *NOT* a requirement, or a must, to use the microWatt microcontroller. The mSL can be used optionally to assist with various tasks or as a general help.
