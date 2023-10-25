@@ -1,0 +1,21 @@
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+microWatt KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin KEYWORD2
+blink KEYWORD2
+setI2Cpins KEYWORD2
+printI2Cpins KEYWORD2
+I2Cscan KEYWORD2
+printSPIpins KEYWORD2
+printPinout KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
