@@ -17,7 +17,7 @@
 // HARDWARE CONFIGURATION
 // Connect the microWatt via USB to your laptop.No other hardware is required.
 
-#include "PTSolns_microWatt.h"
+#include <PTSolns_microWatt.h>
 
 microWatt microWatt;
 
