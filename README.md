@@ -7,36 +7,36 @@ Various examples are included in this package. For any comments or questions ple
 
 
 # Available Commands
-- .begin(optional arguments)<br />
+- microWatt.begin(optional arguments)<br />
   -> Arguments can be left blank (uses defaults), or input (int LED = 13, int number_of_blink = 4, int time_between_blink = 50) which are passed to .blink() (see below).<br />
   -> This starts the mSL with some useful printouts.<br />
   -> Starts Serial if it was not initiated prior.<br />
   -> Sets up .blink() (see below).<br />
   -> function returns int mLS_code (see below).
 
-- .blink(optional arguments)<br />
+- microWatt.blink(optional arguments)<br />
   -> Arguments can be left blank (uses defaults), or input (int LED = 13, int number_of_blink = 4, int time_between_blink = 50).<br />
   -> Makes LED blink ON and OFF number_of_blink times with a equal duration of time_between_blink ms.<br />
 
-- .printPinout()<br />
+- microWatt.printPinout()<br />
   -> No arguments to pass.<br />
   -> Prints the pinout of the microWatt<br />
   
-- .setI2Cpins(optional arguments)<br />
+- microWatt.setI2Cpins(optional arguments)<br />
   -> Arguments can be left blank (uses defaults), or input (int SDA_pin = 21, int SCL_pin = 22).<br />
   -> Set I2C pins.<br />
   -> Initiates Wire.begin(SDA_pin, SCL_pin).<br />
   -> function returns int mLS_code (see below).
   
-- .printI2Cpins()<br />
+- microWatt.printI2Cpins()<br />
   -> No arguments to pass.<br />
   -> Print out the I2C pins (whether default or specified previously using .setI2Cpins()).<br />
   
-- .printSPIpins()<br />
+- microWatt.printSPIpins()<br />
   -> No arguments to pass.<br />
   -> Print out the SPI pins.<br />
   
-- .I2Cscan(optional arguments)<br />
+- microWatt.I2Cscan(optional arguments)<br />
   -> Arguments can be left blank (uses defaults), or input (int SDA_pin = 21, int SCL_pin = 22).<br />
   -> Performs I2C scan to check for any address of connected peripherals.<br />
   -> If no arguments are supplied, then either default I2C pins are used for the scan, or a previously specified set of pins using .setI2Cpins().<br />
