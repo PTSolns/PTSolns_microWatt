@@ -13,7 +13,7 @@
 #include <iostream>
 
 int flag_wire = 0;
-int flag_fade = 0;
+int flag_fade [33] = {};
 int flag_blinkWarning = 0;
 int SDA_pin_global = SDA_pin_default;
 int SCL_pin_global = SCL_pin_default;
@@ -121,6 +121,8 @@ void microWatt::printPinout() {
   Serial.println("     NOTE: Pins connected by symbol '~~' are PWM capable pins.");
   Serial.println("           PWM_pins = {G0, G1, G2, G3, G4, G5, G12, G13, G14, G15, G16, G17, G18, G19, G21, G22, G23, G25, G26, G27, G32, G33}");
   Serial.println("");
+  
+  delay(1000);
 }
 
 
@@ -246,9 +248,9 @@ void microWatt::fade(const int LED_pin, const int PWM_Channel, const int PWM_fre
 	bool found =  false;
 	
 	// Call this only once at the beginning
-	if (flag_fade == 0) {
-		flag_fade = 1;
-
+	if (flag_fade[LED_pin - 1] == 0) {
+		flag_fade[LED_pin - 1] = 1;
+		
 		std::list<int> PWM_pins = {0, 1, 2, 3, 4, 5, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25, 26, 27, 32, 33};
 		
 		for (int pin : PWM_pins) {
