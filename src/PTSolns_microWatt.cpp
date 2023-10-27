@@ -119,7 +119,7 @@ void microWatt::printPinout() {
   Serial.println("                    |________|________|________|");      
   Serial.println("");
   Serial.println("     NOTE: Pins connected by symbol '~~' are PWM capable pins.");
-  Serial.println("           PWM_pins = {G0, G1, G3, G4, G5, G12, G13, G14, G15, G16, G17, G18, G19, G21, G22, G23, G25, G26, G27, G32, G33}");
+  Serial.println("           PWM_pins = {G0, G1, G2, G3, G4, G5, G12, G13, G14, G15, G16, G17, G18, G19, G21, G22, G23, G25, G26, G27, G32, G33}");
   Serial.println("");
 }
 
@@ -249,7 +249,7 @@ void microWatt::fade(const int LED_pin, const int PWM_Channel, const int PWM_fre
 	if (flag_fade == 0) {
 		flag_fade = 1;
 
-		std::list<int> PWM_pins = {0, 1, 3, 4, 5, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25, 26, 27, 32, 33};
+		std::list<int> PWM_pins = {0, 1, 2, 3, 4, 5, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25, 26, 27, 32, 33};
 		
 		for (int pin : PWM_pins) {
 			if (LED_pin == pin) {
@@ -266,7 +266,7 @@ void microWatt::fade(const int LED_pin, const int PWM_Channel, const int PWM_fre
 				Serial.print("     LED_pin = G");
 				Serial.print(LED_pin);
 				Serial.println(" input in .fade() is not allowed. Please choose a PWM pin from the following list: ");	
-				Serial.println("     PWM_pins = {G0, G1, G3, G4, G5, G12, G13, G14, G15, G16, G17, G18, G19, G21, G22, G23, G25, G26, G27, G32, G33}");
+				Serial.println("     PWM_pins = {G0, G1, G2, G3, G4, G5, G12, G13, G14, G15, G16, G17, G18, G19, G21, G22, G23, G25, G26, G27, G32, G33}");
 				Serial.println("     Program stuck in a forever loop ...");
 				Serial.println("");
 				
