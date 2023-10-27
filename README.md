@@ -1,5 +1,5 @@
 # PTSolns ESP32 microWatt Support Library (mSL)
-Library for PTSolns ESP32 microWatt
+Library for PTSolns _ESP32 microWatt_
 
 Although it is recommended that novice users install the microWatt Support Library (mSL), this library is *NOT* a requirement, or a must, in order to use the microWatt microcontroller. The mSL can be used optionally to assist with various tasks or as a general help.
 
@@ -61,8 +61,8 @@ An integer return value from various functions.
 - = 2 -> I2C pins have been set manually AND Wire.begin() has been initiated using either the default pins or specified pins using microWatt.setI2Cpins().
 
 
-# First time using the ESP32 microWatt? Make sure to install the CH340 driver!
-In order for the ESP32 microWatt to be programmed, your computer will need the CH340 driver. If you try to program the ESP32 microWatt and it doesn't work, try installing the driver. [Sparkun has a great tutorial on this!](https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all)
+# Install the CH340 driver
+In order for the _ESP32 microWatt_ to be programmed, your computer will need the CH340 driver. If you try to program the _ESP32 microWatt_ and it doesn't work, try installing the driver first. [Sparkun has a great tutorial on this!](https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all)
 
 
 # Tips
