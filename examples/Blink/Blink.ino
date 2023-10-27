@@ -7,7 +7,7 @@
 // We will use the onboard LED on pin 13 for this example. 
 //
 // In the setup() loop the call microWatt.begin() is made. Among other things, this sets a start-up blink pattern (four fast onboard flashes.)
-// Every time the microWatt is restarted this initial blink is called.
+// Every time the ESP32 microWatt is restarted this initial blink is called.
 // Then we wait 3 sec to go into the loop() loop. Not required, only to show and separate the blink that is called in loop().
 // In loop() the call microWatt.blink(13, 1, 100) is made. The first argument is the pin to the LED. Since the onboard LED is used, this should remain 13.
 // As an exercise, the user can add an external LED + resistor circuit to another pin and change pin 13 accordingly.
@@ -15,7 +15,7 @@
 // The last argument is the equal ON and OFF durations measured in milliseconds.
 //
 // HARDWARE CONFIGURATION
-// Connect the microWatt via USB to your laptop. No other hardware is required.
+// Connect the ESP32 microWatt via USB to your laptop. No other hardware is required.
 
 #include <PTSolns_microWatt.h>
 
