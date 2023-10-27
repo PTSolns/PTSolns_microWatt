@@ -48,7 +48,7 @@ Various examples are included in this package. For any comments or questions ple
 - microWatt.fade(optional arguments)<br />
   -> Arguments can be left blank (uses defaults), or input (const int LED_pin = LED_buildIn, const int PWM_Channel = 0, const int PWM_freq = 500, const int PWM_res = 8, int fade_inc = 5, int time_step = 20).<br />
   -> Using a PWM fade in and out an LED.<br />
-  -> PWM_pins = {G0, G2, G3, G4, G5, G12, G13, G14, G15, G16, G17, G18, G19, G21, G22, G23, G25, G26, G27, G32, G33}.<br />
+  -> PWM_pins = {G0, G1, G2, G3, G4, G5, G12, G13, G14, G15, G16, G17, G18, G19, G21, G22, G23, G25, G26, G27, G32, G33}.<br />
   -> Alternatively to check what the PWM_pins are use microWatt.printPinout() and check the Serial Monitor on baud rate 115200.<br />
   -> See /examples/Fade/Fade.ino for a detailed Arduino IDE example sketch.<br />
 
