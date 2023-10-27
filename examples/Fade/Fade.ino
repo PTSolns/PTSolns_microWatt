@@ -13,6 +13,7 @@
 //         Change the LED_pin compile/upload and open Serial Monitor to 115200 baud. Observe the onboard LED pattern also.
 //         Clearly something went wrong! When that happens the mSL will let you know. For reference, the allowable PWM pins are as follows:
 //         PWM_pins = {G0, G1, G2, G3, G4, G5, G12, G13, G14, G15, G16, G17, G18, G19, G21, G22, G23, G25, G26, G27, G32, G33}
+//         WARNING! Although G1 (TX) and G3 (RX) can be used as PWM pins, but they may interfere with Serial Monitor. Use other pins if possible.
 //         You can also print the pinout diagram and take a look there to see which pins are PWM capable. Uncomment the microWatt.printPinout() in the setup() below and see.
 //        
 // Part D) Finally, change the LED_pin to one of the allowed PWM pins (but not 13, as that's the onboard pin and we want to check one of the exteranl pins).
