@@ -12,7 +12,7 @@ Various examples are included in this package. For any comments or questions ple
   -> This starts the mSL with some useful printouts.<br />
   -> Starts Serial if it was not initiated prior.<br />
   -> Sets up .blink() (see below).<br />
-  -> function returns int mLS_code (see below).
+  -> function returns int mLS_code (see below).<br />
   -> See /examples/GettingStarted/GettingStarted.ino for a detailed Arduino IDE example sketch.<br />
 
 - microWatt.blink(optional arguments)<br />
