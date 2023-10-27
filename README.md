@@ -50,6 +50,7 @@ Various examples are included in this package. For any comments or questions ple
   -> Using a PWM fade in and out an LED.<br />
   -> PWM_pins = {G0, G1, G2, G3, G4, G5, G12, G13, G14, G15, G16, G17, G18, G19, G21, G22, G23, G25, G26, G27, G32, G33}.<br />
   -> Alternatively to check what the PWM_pins are use microWatt.printPinout() and check the Serial Monitor on baud rate 115200.<br />
+  -> WARNING! Although G1 (TX) and G3 (RX) can be used as PWM pins, but they may interfere with Serial Monitor. Use other pins if possible.
   -> See /examples/Fade/Fade.ino for a detailed Arduino IDE example sketch.<br />
 
 
