@@ -15,7 +15,7 @@
 // The last argument is the equal ON and OFF durations measured in milliseconds.
 //
 // HARDWARE CONFIGURATION
-// Connect the microWatt via USB to your laptop.No other hardware is required.
+// Connect the microWatt via USB to your laptop. No other hardware is required.
 
 #include <PTSolns_microWatt.h>
 
