@@ -15,6 +15,7 @@ printI2Cpins KEYWORD2
 I2Cscan KEYWORD2
 printSPIpins KEYWORD2
 printPinout KEYWORD2
+fade KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
