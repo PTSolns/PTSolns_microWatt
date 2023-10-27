@@ -1,5 +1,5 @@
-# PTSolns microWatt Support Library (mSL)
-Library for PTSolns microWatt
+# PTSolns ESP32 microWatt Support Library (mSL)
+Library for PTSolns ESP32 microWatt
 
 Although it is recommended that novice users install the microWatt Support Library (mSL), this library is *NOT* a requirement, or a must, in order to use the microWatt microcontroller. The mSL can be used optionally to assist with various tasks or as a general help.
 
@@ -60,7 +60,12 @@ An integer return value from various functions.
 - = 1 -> Relating to Serial. Likely Serial.begin(baud rate) was not called BEFORE any microWatt commands, and hence it was initiated by the microWatt Support Library. Otherwise, check baud rate. If microWatt Support Library initiated Serial, it would be on Serial.begin(115200).
 - = 2 -> I2C pins have been set manually AND Wire.begin() has been initiated using either the default pins or specified pins using microWatt.setI2Cpins().
 
-  
+
+# First time using the ESP32 microWatt? Make sure to install the CH340 driver!
+In order for the ESP32 microWatt to be programmed, your computer will need the CH340 driver. If you try to program the ESP32 microWatt and it doesn't work, try installing the driver. [Sparkun has a great tutorial on this!](https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all)
+
+
 # Tips
 - If Serial.begin(baud rate) has not been initiated before the BEGIN call, then the mSL will do so using baud rate Serial.begin(115200). If nothing prints to Serial monitor, ensure baud rate is set to 115200.
 - The mSL uses an integer code called mSL_code to keep track on what is happening. Many functions return this value after being called. You can print out the mSL_code and check the reference as to what it means.
+- Make sure to install the CH340 driver (see above).
