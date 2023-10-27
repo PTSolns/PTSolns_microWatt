@@ -93,7 +93,7 @@ void microWatt::blinkWarning() {
 
 
 void microWatt::printPinout() {
-  Serial.println("                       microWatt v1.1+ Pinout");
+  Serial.println("                    ESP32 microWatt v1.1+ Pinout");
   Serial.println("                     __________________________");
   Serial.println("                    | |                      | |");
   Serial.println("               Vin--| |                      | |--Vin");
