@@ -24,7 +24,7 @@ microWatt microWatt;
 void setup() {
   microWatt.begin(); // Among other things, this calls microWatt.blink() with default arguments (LED on pin 13, 4 ON-OFF cycles, duration of 50msec)
 
-  delay(3000); // Not required.
+  delay(3000); // Not required. Only put here to visually separate the blinks made in microWatt.begin() and the ones from microWatt.blink().
 }
 
 void loop() {
