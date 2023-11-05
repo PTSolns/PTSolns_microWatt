@@ -58,13 +58,13 @@ Various examples are included in this package. For any comments or questions ple
   -> WARNING! Although G1 (TX) and G3 (RX) can be used as PWM pins, but they may interfere with Serial Monitor. Use other pins if possible.
   -> See /examples/Fade/Fade.ino for a detailed Arduino IDE example sketch.<br />
 
-  - microWatt.deepSleep(uint32_t duration)<br />
+ - microWatt.deepSleep(uint32_t duration)<br />
   -> Input the duration in seconds to remain in deep sleep.<br />
 
-  - microWatt.lightSleep(uint32_t duration)<br />
+ - microWatt.lightSleep(uint32_t duration)<br />
   -> Input the duration in seconds to remain in light sleep.<br />
 
-  - microWatt.setFreq(uint32_t CPUfreq)<br />
+ - microWatt.setFreq(uint32_t CPUfreq)<br />
   -> Input CPU frequency measured in MHz.<br />
 
 
