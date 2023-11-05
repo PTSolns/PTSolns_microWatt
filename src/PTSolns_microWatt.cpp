@@ -1,5 +1,5 @@
 // microWatt Support Library (mSL)
-// Last Update: Oct 27, 2023
+// Last Update: Oct 29, 2023
 // contact@PTSolns.com
 
 #include "PTSolns_microWatt.h"
@@ -13,16 +13,22 @@
 #include <iostream>
 
 int flag_wire = 0;
-int flag_fade [33] = {};
+int flag_fade [34] = {};
 int flag_blinkWarning = 0;
 int SDA_pin_global = SDA_pin_default;
 int SCL_pin_global = SCL_pin_default;
 int mSL_code = 0;
-int dutyCycle = 0;
-int fade_inverter = 1;
-unsigned long fade_timer;
+int dutyCycle [34] = {};
+int fade_inverter [34] = {};
+unsigned long fade_timer [34] = {};
+unsigned long blink_timer [34] = {};
+int blink_counter [34] = {};
+int blink_data [34] = {};
+int blinkDelay_data [34] = {};
 
-uint8_t microWatt::begin(const int LED, int number_of_blink, int time_between_blink) {
+
+
+uint8_t microWatt::begin(const int LED, int number_of_blink, int time_on_blink, int time_off_blink) {
 
   delay(1000);
 
@@ -41,8 +47,9 @@ uint8_t microWatt::begin(const int LED, int number_of_blink, int time_between_bl
     Serial.println("");
   }
   Serial.println("Available commands:");
-  Serial.println("     microWatt.begin(const int LED = LED_buildIn, int number_of_blink = 4, int time_between_blink = 50)");
-  Serial.println("     microWatt.blink(const int LED = LED_buildIn, int number_of_blink = 4, int time_between_blink = 50)");
+  Serial.println("     microWatt.begin(const int LED = LED_buildIn, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50)");
+  Serial.println("     microWatt.blink(const int LED = LED_buildIn, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50)");
+  Serial.println("     microWatt.blinkDelay(const int LED = LED_buildIn, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50)");	
   Serial.println("     microWatt.setI2Cpins(const int SDA_pin = SDA_pin_default, const int SCL_pin = SCL_pin_default)");  
   Serial.println("     microWatt.printI2Cpins()");  
   Serial.println("     microWatt.I2Cscan(const int SDA_pin_scan = SDA_pin_default, const int SCL_pin_scan = SCL_pin_default)");  
@@ -56,23 +63,71 @@ uint8_t microWatt::begin(const int LED, int number_of_blink, int time_between_bl
 
   // printPinout();
 
-  blink(LED, number_of_blink, time_between_blink);
+  blinkDelay(LED, number_of_blink, time_on_blink, time_off_blink);
 
   return mSL_code;
 }
 
 
-void microWatt::blink(const int LED, int number_of_blink, int time_between_blink) {
+void microWatt::blink(const int LED, int number_of_blink, int time_on_blink, int time_off_blink) {
 	
-  pinMode(LED, OUTPUT);
-  
-  for (int i = 1; i <= number_of_blink; ++i) {
-    digitalWrite(LED, HIGH);
-    delay(time_between_blink); 
-    digitalWrite(LED, LOW);
-    delay(time_between_blink); 
-  }
+	if (blink_data[LED] == 0) {
+		blink_data[LED] = 1;
+		pinMode(LED, OUTPUT);
+	}
+	
+	if (number_of_blink == -1)  {
+		blink_counter[LED] = -2; // Set below threshold indefinitely.
+	}
+	
+	if (blink_counter[LED] < number_of_blink) {
+		if (blink_data[LED] == 1) {
+			blink_data[LED] = 2;
+			digitalWrite(LED, HIGH);
+			blink_timer[LED] = millis(); // Set first timer
+		}
+
+		if (((millis() - blink_timer[LED]) >= time_on_blink) && (blink_data[LED] == 2)) {
+			blink_data[LED] = 3;
+			digitalWrite(LED, LOW);
+			blink_timer[LED] = millis(); // Set second timer
+		}
+	
+		if (((millis() - blink_timer[LED]) >= time_off_blink) && (blink_data[LED] == 3)) {
+			blink_data[LED] = 1;
+			blink_counter[LED] = blink_counter[LED] + 1;
+		}
+	}
+	
+	if (number_of_blink == -1)  {
+		blink_counter[LED] = 0; // Reset counter
+	}
 }
+
+void microWatt::blinkDelay(const int LED, int number_of_blink, int time_on_blink, int time_off_blink) {  
+	if (blinkDelay_data[LED] == 0) {
+		blinkDelay_data[LED] = 1;
+		pinMode(LED, OUTPUT);
+	}
+
+	if (number_of_blink == -1)  {
+		blink_counter[LED] = -2; // Set below threshold indefinitely.
+	}
+
+	for (blink_counter[LED] < number_of_blink) {
+		digitalWrite(LED, HIGH);
+		delay(time_on_blink); 
+		digitalWrite(LED, LOW);
+		delay(time_off_blink); 
+
+		blink_counter[LED] = blink_counter[LED] + 1;
+	}
+
+	if (number_of_blink == -1)  {
+		blink_counter[LED] = 0; // Reset counter
+	}
+}
+
 
 
 void microWatt::blinkWarning() {
@@ -93,7 +148,7 @@ void microWatt::blinkWarning() {
 
 
 void microWatt::printPinout() {
-  Serial.println("                    ESP32 microWatt v1.1+ Pinout");
+  Serial.println("                       microWatt v1.1+ Pinout");
   Serial.println("                     __________________________");
   Serial.println("                    | |                      | |");
   Serial.println("               Vin--| |                      | |--Vin");
@@ -228,7 +283,7 @@ void microWatt::I2Cscan(const int SDA_pin, const int SCL_pin) {
     }
     else if (error == 4) {
       Serial.print("     Unknown error at address 0x");
-      if (address<16) 
+      if (address < 16) 
         Serial.print("0");
       Serial.println(address, HEX);
     }    
@@ -248,8 +303,8 @@ void microWatt::fade(const int LED_pin, const int PWM_Channel, const int PWM_fre
 	bool found =  false;
 	
 	// Call this only once at the beginning
-	if (flag_fade[LED_pin - 1] == 0) {
-		flag_fade[LED_pin - 1] = 1;
+	if (flag_fade[LED_pin] == 0) {
+		flag_fade[LED_pin] = 1;
 		
 		std::list<int> PWM_pins = {0, 1, 2, 3, 4, 5, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25, 26, 27, 32, 33};
 		
@@ -277,15 +332,17 @@ void microWatt::fade(const int LED_pin, const int PWM_Channel, const int PWM_fre
 		}
 		ledcSetup(PWM_Channel, PWM_freq, PWM_res);
 		ledcAttachPin(LED_pin, PWM_Channel);
+		
+		fade_inverter[LED_pin] = 1;
 	}
 	
-	if ((millis() - fade_timer) >= time_step) {
-		fade_timer = millis();
-		dutyCycle = dutyCycle + fade_inverter*fade_inc;
-		ledcWrite(PWM_Channel, dutyCycle);
+	if ((millis() - fade_timer[LED_pin]) >= time_step) {
+		fade_timer[LED_pin] = millis();
+		dutyCycle[LED_pin] = dutyCycle[LED_pin] + fade_inverter[LED_pin]*fade_inc;
+		ledcWrite(PWM_Channel, dutyCycle[LED_pin]);
 		
-		if ((dutyCycle <= 0) || (dutyCycle >= duty_max)) {
-			fade_inverter = -fade_inverter;
+		if ((dutyCycle[LED_pin] <= 0) || (dutyCycle[LED_pin] >= duty_max)) {
+			fade_inverter[LED_pin] = -fade_inverter[LED_pin];
 		}
 	}
 }
