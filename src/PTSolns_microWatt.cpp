@@ -56,6 +56,9 @@ uint8_t microWatt::begin(const int LED, int number_of_blink, int time_on_blink, 
   Serial.println("     microWatt.printSPIpins()"); 
   Serial.println("     microWatt.printPinout()");
   Serial.println("     microWatt.fade(const int LED_pin = LED_buildIn, const int PWM_Channel = 0, const int PWM_freq = 500, const int PWM_res = 8, int fade_inc = 5, int time_step = 20)");
+  Serial.println("     microWatt.deepSleep(uint32_t duration)");
+  Serial.println("     microWatt.lightSleep(uint32_t duration)");
+  Serial.println("     microWatt.setFreq(uint32_t CPUfreq)");
   Serial.println("");
 
   Serial.println("For further details visit: https://github.com/PTSolns/PTSolns_microWatt");
@@ -345,4 +348,20 @@ void microWatt::fade(const int LED_pin, const int PWM_Channel, const int PWM_fre
 			fade_inverter[LED_pin] = -fade_inverter[LED_pin];
 		}
 	}
+}
+
+void microWatt::deepSleep(uint32_t duration) {
+	esp_sleep_enable_timer_wakeup(conversion_uS_S * duration);
+    esp_deep_sleep_start();
+}
+
+
+void microWatt::lightSleep(uint32_t duration) {
+	esp_sleep_enable_timer_wakeup(conversion_uS_S * duration);
+    esp_light_sleep_start();
+}
+
+
+void microWatt::setFreq(uint32_t CPUfreq) {
+    setCpuFrequencyMhz(CPUfreq); // Measured in MHz
 }
