@@ -16,8 +16,13 @@ Various examples are included in this package. For any comments or questions ple
   -> See /examples/GettingStarted/GettingStarted.ino for a detailed Arduino IDE example sketch.<br />
 
 - microWatt.blink(optional arguments)<br />
-  -> Arguments can be left blank (uses defaults), or input (const int LED = 13, int number_of_blink = 4, int time_between_blink = 50).<br />
-  -> Makes LED blink ON and OFF number_of_blink times with a equal duration of time_between_blink ms.<br />
+  -> Arguments can be left blank (uses defaults), or input (const int LED = 13, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50).<br />
+  -> Makes LED blink ON and OFF number_of_blink. Uses millis() for measuring durations, therefore there is no induced delay.<br />
+  -> See /examples/Blink/Blink.ino for a detailed Arduino IDE example sketch.<br />
+
+  - microWatt.blinkDelay(optional arguments)<br />
+  -> Arguments can be left blank (uses defaults), or input (const int LED = 13, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50).<br />
+  -> Makes LED blink ON and OFF number_of_blink. Uses delay() instead of millis().<br />
   -> See /examples/Blink/Blink.ino for a detailed Arduino IDE example sketch.<br />
 
 - microWatt.printPinout()<br />
