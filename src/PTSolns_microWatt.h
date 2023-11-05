@@ -18,6 +18,7 @@ class microWatt
     
   uint8_t begin(const int LED = LED_buildIn, const int number_of_blink = 4, int time_between_blink = 50);
   void blink(const int LED = LED_buildIn, const int number_of_blink = 4, int time_between_blink = 50);
+  void blinkDelay(const int LED = LED_buildIn, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50);
   void printPinout();
   uint8_t setI2Cpins(const int SDA_pin = SDA_pin_default, const int SCL_pin = SCL_pin_default);
   void printI2Cpins();
