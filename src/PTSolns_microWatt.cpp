@@ -151,26 +151,26 @@ void microWatt::blinkWarning() {
 
 
 void microWatt::printPinout() {
-  Serial.println("                       microWatt v1.1+ Pinout");
+  Serial.println("                       microWatt v1.2+ Pinout");
   Serial.println("                     __________________________");
   Serial.println("                    | |                      | |");
   Serial.println("               Vin--| |                      | |--Vin");
   Serial.println("               GND--| |                      | |--GND");
   Serial.println("              3.3V--| |         ESP32        | |~~G22 -- SCL");
-  Serial.println("                EN--| |         Module       | |~~G21 -- SDA");
-  Serial.println(" Input only -- SVP--| |                      | |~~G23 -- COPI");
-  Serial.println(" Input only -- SVN--| |                      | |~~G19 -- CIPO");
-  Serial.println(" Input only -- G34--| |                      | |~~G18 -- SCK");
-  Serial.println(" Input only -- G35--| |                      | |~~G5 --- CS");
-  Serial.println("               G32~~| |______________________| |~~TX");
-  Serial.println("               G33~~|                          |~~RX");
+  Serial.println("                EN->| |         Module       | |~~G21 -- SDA");
+  Serial.println("               SVP->| |                      | |~~G23 -- COPI (VSPI)");
+  Serial.println("               SVN->| |                      | |~~G19 -- CIPO (VPSI)");
+  Serial.println("               G34->| |                      | |~~G18 -- SCK (VSPI)");
+  Serial.println("               G35->| |                      | |~~G5 --- CS (VSPI)");
+  Serial.println("               G32~~| |______________________| |~~TX --- UART0");
+  Serial.println("               G33~~|                          |~~RX --- UART0");
   Serial.println("               GND--|                          |--GND");
-  Serial.println("               G25~~|                          |~~G17");
-  Serial.println("               G26~~|                          |~~G16");
-  Serial.println("               G27~~|                          |~~G4");
-  Serial.println("               G14~~|                          |~~G0");
-  Serial.println("               G12~~|                          |~~G2");
-  Serial.println("Onboard LED -- G13~~|                          |~~G15");
+  Serial.println("               G25~~|                          |~~G17 -- UART2");
+  Serial.println("               G26~~|                          |~~G16 -- UART2");
+  Serial.println("  CS (HSPI) -- G15~~|                          |~~G4");
+  Serial.println(" SCK (HSPI) -- G14~~|                          |~~G0");
+  Serial.println("CIPO (HSPI) -- G12~~|                          |~~G2");
+  Serial.println("COPI (HSPI) -- G13~~|                          |~~G27");
   Serial.println("              3.3V--|         ________         |--3.3V");
   Serial.println("               GND--|        |        |        |--GND");
   Serial.println("              Vusb--|        |  USB-C |        |--Vusb");
@@ -178,6 +178,9 @@ void microWatt::printPinout() {
   Serial.println("");
   Serial.println("     NOTE: Pins connected by symbol '~~' are PWM capable pins.");
   Serial.println("           PWM_pins = {G0, G1, G2, G3, G4, G5, G12, G13, G14, G15, G16, G17, G18, G19, G21, G22, G23, G25, G26, G27, G32, G33}");
+  Serial.println("     NOTE: Pins connected by symbol '->' are input only pins.");	
+  Serial.println("     NOTE: G13 pin controls onboard LED.");
+  Serial.println("     NOTE: For complete description of pin definitions, please consult the user manual.");
   Serial.println("");
   
   delay(1000);
