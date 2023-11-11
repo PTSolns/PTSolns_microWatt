@@ -47,15 +47,15 @@ uint8_t microWatt::begin(const int LED, int number_of_blink, int time_on_blink, 
     Serial.println("");
   }
   Serial.println("Available commands:");
-  Serial.println("     microWatt.begin(const int LED = LED_buildIn, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50)");
-  Serial.println("     microWatt.blink(const int LED = LED_buildIn, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50)");
-  Serial.println("     microWatt.blinkDelay(const int LED = LED_buildIn, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50)");	
+  Serial.println("     microWatt.begin(const int LED = LED_BUITLIN, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50)");
+  Serial.println("     microWatt.blink(const int LED = LED_BUITLIN, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50)");
+  Serial.println("     microWatt.blinkDelay(const int LED = LED_BUITLIN, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50)");	
   Serial.println("     microWatt.setI2Cpins(const int SDA_pin = SDA_pin_default, const int SCL_pin = SCL_pin_default)");  
   Serial.println("     microWatt.printI2Cpins()");  
   Serial.println("     microWatt.I2Cscan(const int SDA_pin_scan = SDA_pin_default, const int SCL_pin_scan = SCL_pin_default)");  
   Serial.println("     microWatt.printSPIpins()"); 
   Serial.println("     microWatt.printPinout()");
-  Serial.println("     microWatt.fade(const int LED_pin = LED_buildIn, const int PWM_Channel = 0, const int PWM_freq = 500, const int PWM_res = 8, int fade_inc = 5, int time_step = 20)");
+  Serial.println("     microWatt.fade(const int LED_pin = LED_BUITLIN, const int PWM_Channel = 0, const int PWM_freq = 500, const int PWM_res = 8, int fade_inc = 5, int time_step = 20)");
   Serial.println("     microWatt.deepSleep(uint32_t duration)");
   Serial.println("     microWatt.lightSleep(uint32_t duration)");
   Serial.println("     microWatt.setFreq(uint32_t CPUfreq)");
@@ -136,13 +136,13 @@ void microWatt::blinkDelay(const int LED, int number_of_blink, int time_on_blink
 void microWatt::blinkWarning() {
 	if (flag_blinkWarning == 0) {
 		flag_blinkWarning = 1;
-		pinMode(LED_buildIn, OUTPUT);
+		pinMode(LED_BUITLIN, OUTPUT);
 	}
   
 	for (int i = 1; i <= 10; ++i) {
-		digitalWrite(LED_buildIn, HIGH);
+		digitalWrite(LED_BUITLIN, HIGH);
 		delay(30); 
-		digitalWrite(LED_buildIn, LOW);
+		digitalWrite(LED_BUITLIN, LOW);
 		delay(30); 
 	}
   
