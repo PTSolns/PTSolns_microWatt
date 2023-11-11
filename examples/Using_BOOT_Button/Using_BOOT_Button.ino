@@ -1,6 +1,6 @@
 // Example: Using BOOT button as general input button
 // Last update: Nov 11, 2023
-// contact@PTSOlns.com
+// contact@PTSolns.com
 //
 // DESCRIPTION
 // It is demonstrated how to use the BOOT button onboard the ESP32 microWatt as a general-purpose input button.
