@@ -66,6 +66,8 @@ uint8_t microWatt::begin(const int LED, int number_of_blink, int time_on_blink, 
 
   // printPinout();
 
+  pinMode(BOOT_BUTTON, INPUT);
+	
   blinkDelay(LED, number_of_blink, time_on_blink, time_off_blink);
 
   return mSL_code;
