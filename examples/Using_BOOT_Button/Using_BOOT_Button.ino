@@ -1,9 +1,9 @@
-// Example: Using BOOT button as general inout button
+// Example: Using BOOT button as general input button
 // Last update: Nov 11, 2023
 // contact@PTSOlns.com
 //
 // DESCRIPTION
-// It is demonstrated how to use the BOOT button onboard the ESP32 microWatt as a general purpose input button.
+// It is demonstrated how to use the BOOT button onboard the ESP32 microWatt as a general-purpose input button.
 // Pressing the BOOT button after uploading this example will cause the onboard LED to turn ON.
 // NOTE: We don't need to define the onboard LED on pin 13 as that is already done in the mSL.
 //
@@ -27,7 +27,7 @@ void setup() {
 void loop() {
   BOOT_button_state = digitalRead(BOOT_pin); // Read the state of the button
 
-  // If button is not pressed, leave LED oFF. Else turn ON LED.
+  // If the button is not pressed, leave LED oFF. Else turn ON LED.
   if (digitalRead(BOOT_pin) == HIGH) {
     digitalWrite(LED_BUITLIN, LOW);
 
