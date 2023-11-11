@@ -8,6 +8,7 @@
 #include <Arduino.h>
 #include <inttypes.h>
 
+#define BOOT_BUTTON 0 // Onbaord BOOT button for microWatt
 #define LED_BUITLIN 13 // Onbaord LED for microWatt
 
 const int SDA_pin_default = 21; // Default value for microWatt
