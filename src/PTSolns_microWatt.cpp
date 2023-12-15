@@ -1,5 +1,5 @@
 // microWatt Support Library (mSL)
-// Last Update: Oct 29, 2023
+// Last Update: Dec 14, 2023
 // contact@PTSolns.com
 
 #include "PTSolns_microWatt.h"
@@ -11,6 +11,8 @@
 #include <Wire.h>
 #include <list>
 #include <iostream>
+
+#define conversion_uS_S 1000000ULL
 
 int flag_wire = 0;
 int flag_fade [34] = {};
@@ -119,7 +121,7 @@ void microWatt::blinkDelay(const int LED, int number_of_blink, int time_on_blink
 		blink_counter[LED] = -2; // Set below threshold indefinitely.
 	}
 
-	for (blink_counter[LED] < number_of_blink) {
+	while (blink_counter[LED] < number_of_blink) {
 		digitalWrite(LED, HIGH);
 		delay(time_on_blink); 
 		digitalWrite(LED, LOW);
