@@ -2,28 +2,107 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-microWatt KEYWORD1
+microWatt                   KEYWORD1
+charger                     KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
-begin KEYWORD2
-blink KEYWORD2
-blinkDelay KEYWORD2
-setI2Cpins KEYWORD2
-printI2Cpins KEYWORD2
-I2Cscan KEYWORD2
-printSPIpins KEYWORD2
-printPinout KEYWORD2
-fade KEYWORD2
-deepSleep KEYWORD2
-lightSleep KEYWORD2
-setFreq KEYWORD2
+begin                       KEYWORD2
+blink                       KEYWORD2
+blinkDelay                  KEYWORD2
+setI2Cpins                  KEYWORD2
+printI2Cpins                KEYWORD2
+I2Cscan                     KEYWORD2
+printSPIpins                KEYWORD2
+printPinout                 KEYWORD2
+fade                        KEYWORD2
+deepSleep                   KEYWORD2
+lightSleep                  KEYWORD2
+setFreq                     KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
 #######################################
 
-BOOT_BUTTON LITERAL1
-LED_BUILTIN LITERAL1
+BOOT_BUTTON                 LITERAL1
+LED_BUILTIN                 LITERAL1
+isConnected                 KEYWORD2
+quickStart                  KEYWORD2
+battVoltage                 KEYWORD2
+battSOC                     KEYWORD2
+chargerVersion              KEYWORD2
+getThreshold                KEYWORD2
+setThreshold                KEYWORD2
+sleep                       KEYWORD2
+wake                        KEYWORD2
+reset                       KEYWORD2
+getCompensation             KEYWORD2
+setCompensation             KEYWORD2
+chargerID                   KEYWORD2
+setResetVoltage             KEYWORD2
+getResetVoltage             KEYWORD2
+enableComparator            KEYWORD2
+getChangeRate               KEYWORD2
+getStatus                   KEYWORD2
+isReset                     KEYWORD2
+isVoltageHigh               KEYWORD2
+isVoltageLow                KEYWORD2
+isVoltageReset              KEYWORD2
+isLow                       KEYWORD2
+isChange                    KEYWORD2
+getAlert                    KEYWORD2
+clearAlert                  KEYWORD2
+enableSOCAlert              KEYWORD2
+disableSOCAlert             KEYWORD2
+enableAlert                 KEYWORD2
+disableAlert                KEYWORD2
+getVALRTMax                 KEYWORD2
+getVALRTMin                 KEYWORD2
+setVALRTMax                 KEYWORD2
+setVALRTMin                 KEYWORD2
+isHibernating               KEYWORD2
+getHIBRTActThr              KEYWORD2
+setHIBRTActThr              KEYWORD2
+getHIBRTHibThr              KEYWORD2
+setHIBRTHibThr              KEYWORD2
+enableHibernate             KEYWORD2
+disableHibernate            KEYWORD2
+write16                     KEYWORD2
+read16                      KEYWORD2
+getConfigRegister	        KEYWORD2
+disableComparator	        KEYWORD2
+PTSolns_microWatt_h         LITERAL1
+LED_BUITLIN                 LITERAL1
+MAX17048_FULL_SCALE         LITERAL1
+MAX17048_MULTIPLIER         LITERAL1
+MAX17048_VCELL              LITERAL1
+MAX17048_SOC                LITERAL1
+MAX17048_MODE               LITERAL1
+MAX17048_VERSION            LITERAL1
+MAX17048_HIBRT              LITERAL1
+MAX17048_CONFIG             LITERAL1
+MAX17048_CVALRT             LITERAL1
+MAX17048_CRATE              LITERAL1
+MAX17048_VRESET_ID          LITERAL1
+MAX17048_STATUS             LITERAL1
+MAX17048_COMMAND            LITERAL1
+MAX17048_CONFIG_ALERT       LITERAL1
+MAX17048_CONFIG_ALSC        LITERAL1
+MAX17048_CONFIG_SLEEP       LITERAL1
+MAX17048_COMMAND_POR        LITERAL1
+MAX17048_MODE_ENSLEEP       LITERAL1
+MAX17048_MODE_HIBSTAT       LITERAL1
+MAX17048_MODE_QUICKSTART    LITERAL1
+MAX17048_HIBRT_ENHIB        LITERAL1
+MAX17048_HIBRT_DISHIB       LITERAL1
+MAX17048_STATUS_RI          LITERAL1
+MAX17048_STATUS_VH          LITERAL1
+MAX17048_STATUS_VL          LITERAL1
+MAX17048_STATUS_VR          LITERAL1
+MAX17048_STATUS_HD          LITERAL1
+MAX17048_STATUS_SC          LITERAL1
+MAX17048_STATUS_EnVR        LITERAL1
+MAX17048_GENERIC_ERROR      LITERAL1
+MAX17048_ADDRESS            LITERAL1
