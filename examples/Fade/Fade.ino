@@ -1,5 +1,5 @@
 // EXAMPLE: Fade
-// Last update: Oct 27, 2023
+// Last update: Jan 28, 2025
 // contact@PTSolns.com
 //
 // DESCRIPTION
@@ -40,10 +40,11 @@ int fade_inc          = 5;    // [Default: 5] The amount the LED changes brightn
 int time_step         = 20;   // [Default: 20] Time between increments, in milliseconds.
 
 void setup() {
-  microWatt.begin(); 
+  microWatt.begin(); // Need this for Serial.begin() ... can also call this manually.
+  delay(2000);
 
   // Uncomment the line below for Part C)
-  microWatt.printPinout();
+  //microWatt.printPinout();
 }
 
 void loop() {
@@ -51,7 +52,7 @@ void loop() {
   microWatt.fade();
 
   // Uncomment the line below for Part B), keep the others commented out.
-  //microWatt.fade(LED_pin, PWM_Channel, PWM_freq, PWM_res, fade_inc, time_step); 
+  //microWatt.fade(LED_pin, PWM_channel, PWM_freq, PWM_res, fade_inc, time_step); 
 
   // Uncomment the line below for Part C) and D), keep the others commented out.
   //microWatt.fade(LED_pin);

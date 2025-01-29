@@ -1,7 +1,7 @@
 # PTSolns ESP32 microWatt Support Library (mSL)
 Library for PTSolns _ESP32 microWatt_
 
-The mSL is designed to help the user program the _ESP32 microWatt_ easily by providing intuitive functions and reducing complexity. The library also adds functionality for the related microWatt stacks.
+The mSL is designed to help the user program the _ESP32 microWatt_ easily by providing intuitive functions and reducing complexity.
 
 Various examples are included in this package. For comments or questions please contact us at contact@PTSolns.com.
 
@@ -12,7 +12,7 @@ The microWatt Family has the _ESP32 microWatt_ at its core, with various add-on 
   -- An ESP32-based development board.
 - _microWatt Charger_
   -- A stackable board to power the _ESP32 microWatt_, with LiPo battery management, PV and USB power inputs.
-- _microWatt LoRa_
+- _microWatt LoRa SX1276 915MHz_
   -- A stackable board to add LoRa communication to the _ESP microWatt_.
 - _microWatt Proto_
   -- A stackable fully customizable prototyping board.

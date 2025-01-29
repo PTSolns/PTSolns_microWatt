@@ -1,17 +1,17 @@
 // EXAMPLE: Blink
-// Last update: Oct 25, 2023
+// Last update: Jan 28, 2025
 // contact@PTSolns.com
 //
 // DESCRIPTION
 // This example demonstrates the classic Blink example. 
-// We will use the onboard LED on pin 13 for this example. 
+// Two types of Blink routines are incorporated, one that uses delay() and one that uses millis()
+// using delay -> .blinkDelay(), using millis() -> .blink()
 //
-// In the setup() loop the call microWatt.begin() is made. Among other things, this sets a start-up blink pattern (four fast onboard flashes.)
-// Every time the ESP32 microWatt is restarted this initial blink is called.
-// Then we wait 3 sec to go into the loop() loop. Not required, only to show and separate the blink that is called in loop().
-// In loop() the call microWatt.blink(13, 1, 100) is made. The first argument is the pin to the LED. Since the onboard LED is used, this should remain 13.
-// As an exercise, the user can add an external LED + resistor circuit to another pin and change pin 13 accordingly.
-// The second argument is the number of blink ON-OFF cycles. It is set to 1 as the loop() is repeated indefinitely anyway. But the number of blink ON-OFF cycles can be set to any number.
+// We will use the onboard LED on pin 13 (LED_BUILTIN) for this example. 
+//
+// In loop() the call microWatt.blink(LED_BUILTIN, 4, 100) is made. 
+// The first argument is the pin to the LED.
+// The second argument is the number of blink ON-OFF cycles. It is set to 4 as the loop(). After four blinks it will stop. If you want to continue blink indefinately put -1 instead.
 // The last argument is the equal ON and OFF durations measured in milliseconds.
 //
 // HARDWARE CONFIGURATION
@@ -22,11 +22,15 @@
 microWatt microWatt;
 
 void setup() {
-  microWatt.begin(); // Among other things, this calls microWatt.blink() with default arguments (LED on pin 13, 4 ON-OFF cycles, duration of 50msec)
-
-  delay(3000); // Not required. Only put here to visually separate the blinks made in microWatt.begin() and the ones from microWatt.blink().
+  // Nothing needed for this example.
 }
 
 void loop() {
-  microWatt.blink(13, 1, 100); // Non-default arguments. LED on pin 13, 1 ON-oFF cycle, duration of 100msec.
+  // Comment and uncomment as desired...
+
+  microWatt.blink(LED_BUITLIN, 4, 100); // Non-default arguments. LED on pin 13, 4 ON-oFF cycle, duration of 100msec.
+  //microWatt.blink(LED_BUITLIN, -1, 200); // Non-default arguments. LED on pin 13, indefinate blink cycles, duration of 200msec.
+
+  //microWatt.blinkDelay(LED_BUITLIN, 4, 300); // Non-default arguments. LED on pin 13, 4 ON-oFF cycle, duration of 100msec.
+  //microWatt.blinkDelay(LED_BUITLIN, -1, 400); // Non-default arguments. LED on pin 13, indefinate blink cycles, duration of 200msec.
 }
