@@ -1,5 +1,5 @@
 // Example: Using BOOT button as general input button
-// Last update: Nov 11, 2023
+// Last update: June 28, 2025
 // contact@PTSOlns.com
 //
 // DESCRIPTION
@@ -27,10 +27,10 @@ void loop() {
 
   // If the button is not pressed, leave LED oFF. Else turn ON LED.
   if (BOOT_button_state == HIGH) {
-    digitalWrite(LED_BUITLIN, LOW);
+    digitalWrite(LED_BUILTIN, LOW);
 
   } else {
-    digitalWrite(LED_BUITLIN, HIGH);
+    digitalWrite(LED_BUILTIN, HIGH);
   }
 
   delay(100);

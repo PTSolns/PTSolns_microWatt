@@ -19,7 +19,23 @@ The microWatt Family has the _ESP32 microWatt_ at its core, with various add-on 
 
 
 # Install the CH340 Driver
-In order for the _ESP32 microWatt_ to be programmed, your computer will need the CH340 driver. If you try to program the _ESP32 microWatt_ and it doesn't work, try installing the driver first. [Sparkun has a great tutorial on this!](https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all)
+In order for the _ESP32 microWatt_ to be programmed, your computer will need the CH340 driver. If you try to program the _ESP32 microWatt_ and it doesn't work, try installing the driver first. [We've made a video on this!](https://youtu.be/UUQ84VKg3oM?si=tP0sAfqpZ2siR3AG)
+
+# Install the ESP32 Board in Arduino IDE
+Add the ESP32 Board Manager URL in Arduino IDE
+- Open the Arduino IDE and navigate to File > Preferences.
+- In the "Additional Board Manager URLs" field, enter the following URL:
+https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+- If another URL is already present, separate multiple URLs using commas.
+
+Install the ESP32 Board Package
+- In the Arduino IDE, navigate to Tools > Board > Board Manager…
+-	In the search bar, type "ESP32 by Espressif Systems".
+-	Select and install the ESP32 board package.
+
+NOTE on compatbility!
+- If you are using ESP32 board 2.x, then use mSL v1.1.2.
+- If you are using ESP32 board 3.x, then use latest version of mSL.
 
 
 # Tips

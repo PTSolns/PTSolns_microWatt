@@ -1,5 +1,5 @@
 // microWatt Support Library (mSL)
-// Last Update: Jan 28, 2025
+// Last Update: June 28, 2025
 // contact@PTSolns.com
 
 #include "PTSolns_microWatt.h"
@@ -40,15 +40,15 @@ void microWatt::begin(const int LED, int number_of_blink, int time_on_blink, int
   Serial.println("Starting microWatt Support Library (mSL) ...");
   Serial.println("");
   Serial.println("Available commands:");
-  Serial.println("     microWatt.begin(const int LED = LED_BUITLIN, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50)");
-  Serial.println("     microWatt.blink(const int LED = LED_BUITLIN, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50)");
-  Serial.println("     microWatt.blinkDelay(const int LED = LED_BUITLIN, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50)");	
+  Serial.println("     microWatt.begin(const int LED = LED_BUILTIN, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50)");
+  Serial.println("     microWatt.blink(const int LED = LED_BUILTIN, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50)");
+  Serial.println("     microWatt.blinkDelay(const int LED = LED_BUILTIN, int number_of_blink = 4, int time_on_blink = 50, int time_off_blink = 50)");	
   Serial.println("     microWatt.setI2Cpins(const int SDA_pin = SDA_pin_default, const int SCL_pin = SCL_pin_default)");  
   Serial.println("     microWatt.printI2Cpins()");  
   Serial.println("     microWatt.I2Cscan(const int SDA_pin_scan = SDA_pin_default, const int SCL_pin_scan = SCL_pin_default)");  
   Serial.println("     microWatt.printSPIpins()"); 
   Serial.println("     microWatt.printPinout()");
-  Serial.println("     microWatt.fade(const int LED_pin = LED_BUITLIN, const int PWM_Channel = 0, const int PWM_freq = 500, const int PWM_res = 8, int fade_inc = 5, int time_step = 20)");
+  Serial.println("     microWatt.fade(const int LED_pin = LED_BUILTIN, const int PWM_Channel = 0, const int PWM_freq = 500, const int PWM_res = 8, int fade_inc = 5, int time_step = 20)");
   Serial.println("     microWatt.deepSleep(uint32_t duration)");
   Serial.println("     microWatt.lightSleep(uint32_t duration)");
   Serial.println("     microWatt.setFreq(uint32_t CPUfreq)");
@@ -129,13 +129,13 @@ void microWatt::blinkDelay(const int LED, int number_of_blink, int time_on_blink
 void microWatt::blinkWarning() {
 	if (flag_blinkWarning == 0) {
 		flag_blinkWarning = 1;
-		pinMode(LED_BUITLIN, OUTPUT);
+		pinMode(LED_BUILTIN, OUTPUT);
 	}
   
 	for (int i = 1; i <= 10; ++i) {
-		digitalWrite(LED_BUITLIN, HIGH);
+		digitalWrite(LED_BUILTIN, HIGH);
 		delay(30); 
-		digitalWrite(LED_BUITLIN, LOW);
+		digitalWrite(LED_BUILTIN, LOW);
 		delay(30); 
 	}
   
@@ -321,8 +321,9 @@ void microWatt::fade(const int LED_pin, const int PWM_Channel, const int PWM_fre
 				blinkWarning();
 			}
 		}
-		ledcSetup(PWM_Channel, PWM_freq, PWM_res);
-		ledcAttachPin(LED_pin, PWM_Channel);
+		//ledcSetup(PWM_Channel, PWM_freq, PWM_res); // Not supported anymore in ESP32 board 3.x
+		//ledcAttachPin(LED_pin, PWM_Channel); // Not supported anymore in ESP32 board 3.x
+		ledcAttachChannel(LED_pin, PWM_freq, PWM_res, PWM_Channel);
 		
 		fade_inverter[LED_pin] = 1;
 	}
@@ -330,7 +331,7 @@ void microWatt::fade(const int LED_pin, const int PWM_Channel, const int PWM_fre
 	if ((millis() - fade_timer[LED_pin]) >= time_step) {
 		fade_timer[LED_pin] = millis();
 		dutyCycle[LED_pin] = dutyCycle[LED_pin] + fade_inverter[LED_pin]*fade_inc;
-		ledcWrite(PWM_Channel, dutyCycle[LED_pin]);
+		ledcWrite(LED_pin, dutyCycle[LED_pin]);
 		
 		if ((dutyCycle[LED_pin] <= 0) || (dutyCycle[LED_pin] >= duty_max)) {
 			fade_inverter[LED_pin] = -fade_inverter[LED_pin];

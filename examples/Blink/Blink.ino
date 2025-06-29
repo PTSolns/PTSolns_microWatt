@@ -1,5 +1,5 @@
 // EXAMPLE: Blink
-// Last update: Jan 28, 2025
+// Last update: June 28, 2025
 // contact@PTSolns.com
 //
 // DESCRIPTION
@@ -28,9 +28,9 @@ void setup() {
 void loop() {
   // Comment and uncomment as desired...
 
-  microWatt.blink(LED_BUITLIN, 4, 100); // Non-default arguments. LED on pin 13, 4 ON-oFF cycle, duration of 100msec.
-  //microWatt.blink(LED_BUITLIN, -1, 200); // Non-default arguments. LED on pin 13, indefinate blink cycles, duration of 200msec.
+  microWatt.blink(LED_BUILTIN, 4, 100); // Non-default arguments. LED on pin 13, 4 ON-oFF cycle, duration of 100msec.
+  //microWatt.blink(LED_BUILTIN, -1, 200); // Non-default arguments. LED on pin 13, indefinate blink cycles, duration of 200msec.
 
-  //microWatt.blinkDelay(LED_BUITLIN, 4, 300); // Non-default arguments. LED on pin 13, 4 ON-oFF cycle, duration of 100msec.
-  //microWatt.blinkDelay(LED_BUITLIN, -1, 400); // Non-default arguments. LED on pin 13, indefinate blink cycles, duration of 200msec.
+  //microWatt.blinkDelay(LED_BUILTIN, 4, 300); // Non-default arguments. LED on pin 13, 4 ON-oFF cycle, duration of 100msec.
+  //microWatt.blinkDelay(LED_BUILTIN, -1, 400); // Non-default arguments. LED on pin 13, indefinate blink cycles, duration of 200msec.
 }
