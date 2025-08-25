@@ -3,7 +3,7 @@ Library for PTSolns _ESP32 microWatt_
 
 The mSL is designed to help the user program the _ESP32 microWatt_ easily by providing intuitive functions and reducing complexity.
 
-Various examples are included in this package. For comments or questions please [Contact Us](https://ptsolns.com/contact).
+Various examples are included in this package. For comments or questions please [Contact Us](https://ptsolns.com/pages/contact).
 
 
 # microWatt Family
