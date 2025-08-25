@@ -3,19 +3,20 @@ Library for PTSolns _ESP32 microWatt_
 
 The mSL is designed to help the user program the _ESP32 microWatt_ easily by providing intuitive functions and reducing complexity.
 
-Various examples are included in this package. For comments or questions please contact us at contact@PTSolns.com.
+Various examples are included in this package. For comments or questions please [Contact Us](https://ptsolns.com/contact).
 
 
 # microWatt Family
 The microWatt Family has the _ESP32 microWatt_ at its core, with various add-on stacks. The product line includes:
-- _ESP32 microWatt_
+- _[ESP32 microWatt](https://ptsolns.com/products/esp32-microwatt)_
   -- An ESP32-based development board.
+- _[microWatt Proto](https://ptsolns.com/products/microwatt-proto)_
+  -- A stackable fully customizable prototyping board.  
 - _microWatt Charger_
   -- A stackable board to power the _ESP32 microWatt_, with LiPo battery management, PV and USB power inputs.
 - _microWatt LoRa SX1276 915MHz_
   -- A stackable board to add LoRa communication to the _ESP microWatt_.
-- _microWatt Proto_
-  -- A stackable fully customizable prototyping board.
+
 
 
 # Install the CH340 Driver
